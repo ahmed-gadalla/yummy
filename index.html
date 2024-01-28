@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content="30" /> -->
+    <link rel="icon" href="./imgs/logo.png" />
+    <title>Yummy</title>
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!--body font link -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!--  -->
+
+    <!-- bootstrap link  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- css link -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- media link -->
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+
+  <body class="bg-dark-subtle">
+    <!-- loading -->
+    <div class="loading">
+      <span class="loader"></span>
+    </div>
+    <!-- site bar -->
+    <div id="sideBar">
+      <div class="d-flex justify-content-center align-items-center box-parent">
+        <div class="siteBox">
+          <div class="inner-site px-4">
+            <h4 class="text-danger">Menu</h4>
+            <hr />
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+              <li class="nav-item">
+                <a class="nav-link home-link" href="#" id="searchLink"
+                  >Search</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link about-link" href="#" id="categoriesLink"
+                  >Categories</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link services-link" href="#" id="areaLink"
+                  >Area</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link work-link" href="#" id="ingredientsLink">Ingredients</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link work-link" href="#" id="contactLink">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="menu-side d-flex flex-column justify-content-between align-items-baseline"
+        >
+          <a class="logo">
+            <img src="./imgs/logo.png" alt="" class="w-100 p-1" />
+          </a>
+          <i class="fa-solid fa-bars" id="setIcon"></i>
+          <div class="d-flex flex-column">
+            <i class="fa-solid fa-globe p-2 text-warning"></i>
+            <i class="fa-solid fa-share-nodes p-2 text-warning"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- search -->
+    <section
+      class="pt-5 bg-dark-subtle animate__animated animate__fadeInDown"
+      id="search"
+    >
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-lg-6 col-md-12 p-3">
+            <input
+              type="text"
+              id="NameInput"
+              class="form-control"
+              placeholder="Search By Full name"
+              oninput="search()"
+            />
+          </div>
+          <div class="col-lg-6 col-md-12 p-3">
+            <input
+              type="text"
+              id="firstLitterInput"
+              class="form-control"
+              placeholder="Search By First Litter"
+              oninput="searchLitter()"
+              maxlength="1"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- **********start home  -->
+
+    <section
+      id="home"
+      class="show py-5 bg-dark-subtle animate__animated animate__fadeInDown"
+    >
+      <div class="container">
+        <div class="row g-3" id="boxMeals"></div>
+      </div>
+    </section>
+
+    <!-- full meale -->
+    <section
+      id="fullMeale"
+      class="py-5 bg-dark-subtle animate__animated animate__fadeInUp"
+    >
+      <div class="container">
+        <div class="text-center pb-3">
+          <i
+            class="fa-solid fa-chevron-down fa-2x bg-warning px-4 rounded-2 shadow"
+          ></i>
+        </div>
+        <div class="row g-3" id="fullDetails"></div>
+      </div>
+    </section>
+
+    <!-- categries -->
+    <section
+      class="py-5 bg-dark-subtle animate__animated animate__fadeInDown"
+      id="categories"
+    >
+      <div class="container">
+        <div class="row" id="ctegoriesList">
+          <p></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Area -->
+
+    <section id="area" class="py-5 animate__animated animate__fadeInDown">
+      <div class="container">
+        <div class="row g-3" id="areaList">
+          
+        </div>
+      </div>
+
+    </section>
+
+    <!-- *****ingredients -->
+
+    <section id="ingredients" class="py-5 animate__animated animate__fadeInDown">
+      <div class="container">
+        <div class="row g-3" id="ingredientsList">
+          
+      </div>
+
+    </section>
+
+    <!-- **********contact -->
+
+    <section id="contact" class="py-5">
+      <div class="container">
+        <div class="row shadow p-lg-3">
+          <div class="col-lg-6 col-md-12">
+            <div class="py-3">
+              <input id="nameInput" onkeyup="nameLocate()" type="text" class="form-control" placeholder="Enter Your Name" fdprocessedid="p0z3bd">
+              <div id="nameAlert" class="alert alert-danger w-100 mt-2 ">
+                Special characters and numbers not allowed
+            </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+            <div class="py-3">
+              <input id="PhoneInput" onkeyup="phoneLocate()" type="text" class="form-control" placeholder="Enter Your Phone number" fdprocessedid="p0z3bd">
+              <div id="PhoneAlert" class="alert alert-danger w-100 mt-2 ">
+                Enter valid Phone Number
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+            <div class="py-3">
+              <input id="passInput" onkeyup="passwordLocate()" type="password" class="form-control" placeholder="Enter Your Password" fdprocessedid="p0z3bd">
+              <div id="passAlert" class="alert alert-danger w-100 mt-2 ">
+                Enter valid password *Minimum eight characters, at least one letter and one number:*
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+            <div class="py-3">
+              <input id="emailInput" onkeyup="emailLocate()" type="text" class="form-control" placeholder="Enter Your E-mail" fdprocessedid="p0z3bd">
+              <div id="emailAlert" class="alert alert-danger w-100 mt-2 ">
+                Email not valid *exemple@yyy.zzz
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+            <div class="py-3">
+              <input id="ageInput" onkeyup="ageLocate()" type="text" class="form-control" placeholder="Enter Your Age" fdprocessedid="p0z3bd">
+              <div id="ageAlert" class="alert alert-danger w-100 mt-2 ">
+                Enter valid age
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+            <div class="py-3">
+              <input id="repassInput" onkeyup="repassLocate()" type="password" class="form-control" placeholder="Repassword" fdprocessedid="p0z3bd">
+              <div id="repassAlert" class="alert alert-danger w-100 mt-2 ">
+                Enter valid repassword            </div>
+            </div>
+          </div>
+        </div>
+        <button id="submitBtn" disabled="true" class="btn btn-outline-danger px-2 mt-3">Submit</button>      </div>
+    </section>
+
+    <script src="jv/jquery-3.7.1.min.js"></script>
+    <script src="jv/bootstrap.bundle.min.js"></script>
+    <script src="jv/index.js"></script>
+  </body>
+</html>
